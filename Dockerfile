@@ -1,7 +1,7 @@
 # Copyright 2021 Synology Inc.
 
 ############## Build stage ##############
-FROM golang:1.21.4-alpine as builder
+FROM golang:1.21.4-alpine AS builder
 LABEL stage=synobuilder
 
 RUN apk add --no-cache alpine-sdk
@@ -19,7 +19,7 @@ RUN GOARCH=$(echo "$TARGETPLATFORM" | cut -f2 -d/) \
     go build -v -ldflags '-extldflags "-static"' -o ./bin/synology-csi-driver .
 
 ############## CSI Driver ##############
-FROM alpine:latest as driver
+FROM alpine:latest AS driver
 LABEL maintainers="Synology Authors" \
       description="Synology CSI Plugin"
 
