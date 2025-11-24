@@ -1,6 +1,6 @@
 #  Copyright 2021 Synology Inc.
 
-REGISTRY_NAME=synology
+REGISTRY_NAME=ghcr.io/djcopley
 IMAGE_NAME=synology-csi
 IMAGE_VERSION=v1.2.1
 IMAGE_TAG=$(REGISTRY_NAME)/$(IMAGE_NAME):$(IMAGE_VERSION)
@@ -34,6 +34,6 @@ synocli:
 test:
 	go clean -testcache
 	go test -v ./test/...
+
 clean:
 	-rm -rf ./bin
-
